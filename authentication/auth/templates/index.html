@@ -1,0 +1,11 @@
+<h1> Index Page</h1>
+
+{% if user.is_authenticated %}
+    <h2>*** Hello! *** </h2>
+    <h3>You Are Successfully Logged In</h3>
+    <p>Logout!<a href="signin">Log out</a></p>
+    
+    {% else %}
+    <p>Already a user? <a href="signin">Sign In</a></p>
+    <p>New User?<a href="signup">Sign up</a></p>
+    {% endif %}

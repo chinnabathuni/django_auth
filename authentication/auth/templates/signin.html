@@ -1,0 +1,33 @@
+{% block title %}Signin{% endblock title %}
+<style>
+    .card {
+        width: 400px; /* Set your desired width */
+        padding: 20px; /* Set your desired padding */
+        background-color: #f8f9fa; /* Set background color for the card */
+    }
+  </style>
+  
+  <div class="card">
+  
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>{{ message }}</strong> You should check in on some of those fields below.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+  
+    <h3 class="text-dark">Sign in</h3>
+  
+    <form action="signin" method="post">{% csrf_token %}
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+  
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" required><br><br>
+  
+      <input type="submit" value="Submit" class="button signin">
+    </form>
+  
+    <p>New User? <a href="signup">Sign up</a></p>
+  </div>
+  
